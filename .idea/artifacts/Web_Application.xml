@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ejb" name="Web Application">
+    <output-path>$PROJECT_DIR$/src/main/webApp</output-path>
+    <root id="root" />
+  </artifact>
+</component>

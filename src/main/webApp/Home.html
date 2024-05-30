@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Screen</title>
+    <link rel="stylesheet" href="Home.css">
+</head>
+<body>
+<h1 id="title">Welcome to <span class="title-span">EasyDataAnalyzer</span>!</h1>
+<p id="description">Where You can Convert Data to graph:)</p>
+<form action="hello" method="GET" id="survey-form">
+    <fieldset>
+        <label for="csv-file" class="drop-container">
+            <span class="drop-title">Drop files here</span>
+            or
+            <input type="file" id="csv-file" name="fileinput" accept=".csv" required>
+        </label>
+        <div class="select-graph">
+            <select name="graphtype" id="type-select" required>
+                <option value="">--Please choose an option--</option>
+                <option value="line">Line chart</option>
+                <option value="bar">Bar chart</option>
+                <option value="pie">Pie chart</option>
+                <option value="doughnut">Doughnut chart</option>
+            </select>
+        </div>
+        <div class="plot-graph">
+            <input type="submit" value="Plot Graph">
+        </div>
+    </fieldset>
+    <textarea style="display:none" id="file-output" name="file-output"></textarea>
+</form>
+<script>
+    document.querySelector("#csv-file").addEventListener("change", function(event) {
+      var file = event.target.files[0];
+      var reader = new FileReader();
+      reader.onload = function(event) {
+        document.querySelector("#file-output").value = event.target.result;
+      };
+      reader.readAsText(file);
+    });
+</script>
+</body>
+</html>
